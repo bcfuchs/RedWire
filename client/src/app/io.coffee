@@ -878,3 +878,62 @@ RW.io.movuino =
         catch e
           console.log("Error closing Mouvino web socket", e)
     }
+
+# Gives access to mobile data
+RW.io.mobilemover =  
+  meta:
+    visual: false
+  factory: (options) ->
+    # Connect to the serial port via a web socket -- ws_server.js for now
+    # but eventually socket.io
+    keysDown = {}
+    state =
+      connected: false
+      move:  false 
+    moves = ['u','d','l','r']
+    ws_ip = "192.168.1.84"
+    port = 9092
+    ws = new WebSocket("ws://"+ ws_ip + ":" + port,'echo-protocol')
+    ws.onopen = -> 
+      # ws.send("l")
+      state.connected = true
+    ws.onmessage = (event) ->
+      # for now, wipe this on each new message
+
+      console.log(qr)
+      keysDown = {}
+      data = JSON.parse(event.data);
+      # TODO add per game filter from vendor js
+      key = data.msg
+
+# test by just emitting a keydown event
+# needs a debounce
+      arrow  = $.Event('keydown');
+      kill = $.Event('keyup');
+#  jQuery uses which not keyCode
+      arrow.which = key
+      kill.which = key
+      interval = 100
+      selector = '#gameContent'
+      killme = () -> $(selector).trigger(kill)
+      $(selector).trigger(arrow)
+      setTimeout(killme,interval)
+      keysDown[key] = true     
+
+
+    return {
+      # what do we need to return here? 
+      # keyboard returns a keysDowns object of form {38:true,40:false,...}
+      # we can return that. 
+      provideData: -> 
+        global: keysDown: keysDown
+      establishData: -> # NOP
+      destroy: -> 
+        try 
+          if not ws or ws.readyState != WebSocket.OPEN then return null
+
+          ws.send("q")
+          ws.close()
+        catch e
+          console.log("Error closing Mobiler web socket", e)
+    }
