@@ -1,6 +1,6 @@
 {
-	"host": "",
-	"username": "",
-	"path": "",
-	"password": ""
+	"host": "localhost",
+	"username": "admin",
+	"path": "/",
+	"password": "admin"
 }

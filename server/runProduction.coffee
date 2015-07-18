@@ -7,7 +7,7 @@ deployd = require('deployd')
 
 # Use port 5000 and a separate MongoDB instance
 config = 
-  port: process.env.PORT || 5000
+  port: process.env.PORT || 2403
   env: 'dev'
   db: 
     host: 'localhost'

@@ -93,12 +93,18 @@ module.exports = {
       'vendor/bowser/bowser.js',
       'vendor/sat-js/SAT.js',
       'vendor/angulartics/src/angulartics.js',
-      'vendor/angulartics/src/angulartics-ga.js'
+      'vendor/angulartics/src/angulartics-ga.js',
+      'vendor/qrcodejs/qrcode.js',
+      'vendor/mobiler/mobile.js',
+      'vendor/mobiler/port.js',
+      'vendor/mobiler/ip.js',
+     
     ],
     css: [
       'vendor/flexy-layout/src/flexyLayout.css',
       'vendor/angular-xeditable/dist/css/xeditable.css',
-      'vendor/jsoneditor/jsoneditor.css'
+      'vendor/jsoneditor/jsoneditor.css',
+      'vendor/mobiler/mobiler.css',
     ],
     images: [
       'vendor/jsoneditor/img/jsoneditor-icons.png'

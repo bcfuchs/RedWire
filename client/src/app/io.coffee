@@ -891,20 +891,31 @@ RW.io.mobilemover =
       connected: false
       move:  false 
     moves = ['u','d','l','r']
-    ws_ip = "192.168.1.84"
-    port = 9092
+    # get ip and port of ws from js file written on startup
+   
+    ws_ip = window.mobiler_qr_ip
+    port  = window.mobiler_qr_port
+ 
+
     ws = new WebSocket("ws://"+ ws_ip + ":" + port,'echo-protocol')
     ws.onopen = -> 
-      # ws.send("l")
+ 
       state.connected = true
     ws.onmessage = (event) ->
       # for now, wipe this on each new message
 
-      console.log(qr)
+
       keysDown = {}
       data = JSON.parse(event.data);
+      # hide the qr code
+
+#      parent.$("#"+data.id).hide();
+
+
+
       # TODO add per game filter from vendor js
       key = data.msg
+      console.log(key);
 
 # test by just emitting a keydown event
 # needs a debounce
@@ -913,7 +924,7 @@ RW.io.mobilemover =
 #  jQuery uses which not keyCode
       arrow.which = key
       kill.which = key
-      interval = 100
+      interval = 50
       selector = '#gameContent'
       killme = () -> $(selector).trigger(kill)
       $(selector).trigger(arrow)
@@ -935,5 +946,5 @@ RW.io.mobilemover =
           ws.send("q")
           ws.close()
         catch e
-          console.log("Error closing Mobiler web socket", e)
+          console.log("Error closing Mobilemovr web socket", e)
     }
