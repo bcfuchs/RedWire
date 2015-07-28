@@ -909,6 +909,7 @@ RW.io.mobilemover =
       data = JSON.parse(event.data);
       # hide the qr code
 
+
 #      parent.$("#"+data.id).hide();
 
 
