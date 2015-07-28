@@ -1,0 +1,15 @@
+#mobileqr {
+
+
+}
+
+#mobileqr div {
+display: inline;
+
+}
+
+#mobileqr #qrcode1 {
+float: left;
+margin-right: 200px;
+margin-left: 200px;
+}
