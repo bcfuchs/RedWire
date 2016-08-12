@@ -1,10 +1,12 @@
-#!//bin/bash
+#!/bin/bash
 
 # Directory of script (why is this so hard?)
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-pushd .
-cd $DIR
+#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PWD=`pwd -P`
+DIR="$PWD"
+echo $DIR
+#pushd .
+#cd $DIR
 
 # Make logs directory if it doesn't exist
 mkdir -p logs
