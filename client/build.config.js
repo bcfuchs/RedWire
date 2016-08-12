@@ -95,10 +95,13 @@ module.exports = {
       'vendor/angulartics/src/angulartics.js',
       'vendor/angulartics/src/angulartics-ga.js',
       'vendor/qrcodejs/qrcode.js',
-      'vendor/mobiler/mobile.js',
       'vendor/mobiler/port.js',
       'vendor/mobiler/ip.js',
-     
+      'vendor/mobiler/mobile.js',
+
+
+
+
     ],
     css: [
       'vendor/flexy-layout/src/flexyLayout.css',
