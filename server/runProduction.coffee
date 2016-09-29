@@ -10,10 +10,10 @@ config =
   port: process.env.PORT || 2403
   env: 'dev'
   db: 
-    host: 'localhost'
+    host: process.env.MONGO_PORT_27017_TCP_ADDR || 'localhost'
     port: 27017
     name: 'redwire'
-
+console.log(config)
 server = deployd(config)
 server.listen()
 
