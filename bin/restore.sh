@@ -1,3 +1,4 @@
+echo "adding data to mongo db..."
 # import db
 docker run \
        --rm  \

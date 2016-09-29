@@ -880,6 +880,7 @@ RW.io.movuino =
     }
 
 # Gives access to mobile data
+# but maybe we can inject this from mobiler...
 RW.io.mobilemover =  
   meta:
     visual: false
@@ -908,6 +909,7 @@ RW.io.mobilemover =
       keysDown = {}
       data = JSON.parse(event.data);
       # hide the qr code
+
 
 #      parent.$("#"+data.id).hide();
 
