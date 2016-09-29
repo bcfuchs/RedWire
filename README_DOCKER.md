@@ -7,4 +7,4 @@ Running the Glass Workshop Redwire Demo on Docker
 
 3. `cd RedWire`
 
-4. `sh docker-up-example.sh`   # change the ip address in this file to your machine's external ip address.`
+4. `sh docker-up-example.sh`   # change the ip address in this file to your machine's external ip address.
